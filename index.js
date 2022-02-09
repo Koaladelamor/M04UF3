@@ -11,7 +11,7 @@ let http_server = http.createServer(function(req, res){
 		
 		fs.readFile("character.png", function(error, data){
 			if (error) {
-				console.log("error");
+				console.log("error reading file");
 				return;
 			}
 
