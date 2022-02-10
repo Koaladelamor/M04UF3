@@ -9,8 +9,8 @@
 
 <body>
 <h1>Te falta calle</h1>
-<!--<img src="character.png">
-<img src="road.png">-->
+<img src="character.png">
+<img src="road.png">
 <script>
 let config = {
 	width: 800,
@@ -25,13 +25,23 @@ let game = new Phaser.Game(config);
 
 let player;
 
-function preload() {
+function preload () {
 	this.load.player("robot", "character.png");
 	this.load.image("background", "road.png");
+	this.load.player("blueCar", "blueCar.png");
+	this.load.image("redCar", "redCar.png");
+	this.load.player("police", "police.png");
+	this.load.image("ambulance", "ambulance.png");
 }
 
 function create () {
 
+	this.add.image(0, 0, "background");
+	this.add.image(400, 300, "robot");
+	this.add.image(50, 0, "blueCar");
+	this.add.image(70, 0, "redCar");
+	this.add.image(90, 0, "police");
+	this.add.image(110, 0, "ambulance");
 }
 
 function update () {

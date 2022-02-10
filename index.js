@@ -2,26 +2,27 @@
 
 let http = require("http");
 let fs = require("fs");
+let assets = require("./assets.json");
 
 console.log("Iniciando...");
 
 let http_server = http.createServer(function(req, res){
 	
-	if(req.url == "/character.png") {
+	for(let i = 0; i < assets.images.length; i++){
 		
-		fs.readFile("character.png", function(error, data){
-			if (error) {
-				console.log("error reading file");
-				return;
-			}
+		if(req.url == "/" + assets.images[i]) {
+			
+			fs.readFile(assets.images[i], function(error, data){
+				if (error) {
+					console.log("error reading file");
+					return;
+				}
 
-			res.writeHead(200);
-			res.end(data);
+				res.writeHead(200);
+				res.end(data);
 
-		});
-
-		return;
-
+			});	
+		}
 	}
 
 	fs.readFile("index.html", function(error, data){
